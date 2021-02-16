@@ -55,7 +55,7 @@ const Clover_Fetch = () => {
     
     useEffect(() => {
         const CloverData = async () => {
-            let url = "https://axess.axessmps.com:443/restapi/3.13.0/auth";
+            let url = "https://cors-anywhere.herokuapp.com/https://axess.axessmps.com:443/restapi/3.13.0/auth";
     
             const response = await fetch(url, {
                 method: 'GET',

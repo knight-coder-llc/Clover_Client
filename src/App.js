@@ -3,37 +3,10 @@ import 'bootstrap/dist/css/bootstrap.css'
 import Sitebar from './components/Navbar';
 import Auth from './components/auth/Auth';
 import WorkoutIndex from './components/workouts/WorkoutIndex';
+import Clover_Fetch from './components/fetch/Clover';
 
 function App() {
-  const [sessionToken, setSessionToken] = useState('');
-
-  useEffect(() => {
-    if (localStorage.getItem('token')){
-      setSessionToken(localStorage.getItem('token'));
-    }
-  }, [])
-
-  const updateToken = (newToken) => {
-    localStorage.setItem('token', newToken);
-    setSessionToken(newToken);
-    console.log(sessionToken);
-  }
-  const clearToken = () => {
-    localStorage.clear();
-    setSessionToken('');
-  }
-
-  const protectedViews = () => {
-    return (sessionToken === localStorage.getItem('token') ? <WorkoutIndex token={sessionToken}/>
-    : <Auth updateToken={updateToken}/>)
-  }
-
-  return (
-    <div>
-      <Sitebar clickLogout={clearToken}/>
-      {protectedViews()}
-    </div>
-  );
+    return <Clover_Fetch />
 }
 
 export default App;
